@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        >
+
+        <TextView
+            android:id="@+id/titleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="@color/background"
+            android:gravity="center_horizontal"
+            android:paddingTop="30dp"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:onClick="backClick"
+            android:padding="7dp"
+            android:src="@mipmap/icon_back"
+            />
+
+        <ImageView
+            android:id="@+id/btn_cash_record"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="8dp"
+            android:padding="8dp"
+            android:src="@mipmap/icon_cash_record"
+            />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/black3"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:id="@+id/coin_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:singleLine="true"
+                        android:textColor="#fff"
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/coin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center_horizontal"
+                        android:singleLine="true"
+                        android:textColor="#fff"
+                        android:textSize="22sp"
+                        />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#80ffffff"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="270dp"
+                android:background="@color/black3"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/can_coin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    />
+
+                <EditText
+                    android:id="@+id/money_input"
+                    android:layout_width="150dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/input_cash_coin"
+                    android:gravity="center"
+                    android:hint="@string/please_input_cash_coin"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"
+                    android:textColor="#333"
+                    android:textColorHint="#737373"
+                    android:textSize="16sp"
+                    />
+
+                <TextView
+                    android:id="@+id/min_cash_coin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/gray3"
+                    android:textSize="12sp"
+                    />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <com.Tata.video.custom.DrawableRadioButton2
+                        android:id="@+id/btn_wx"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="@string/微信"
+                        android:textColor="#fff"
+                        android:textSize="16sp"
+                        app:left_drawable="@drawable/bg_cash"
+                        app:left_drawableSize="16dp"
+                        />
+
+                    <com.Tata.video.custom.DrawableRadioButton2
+                        android:id="@+id/btn_zfb"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="40dp"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/支付宝"
+                        android:textColor="#fff"
+                        android:textSize="16sp"
+                        app:left_drawable="@drawable/bg_cash"
+                        app:left_drawableSize="16dp"
+                        />
+
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/account_input"
+                    android:layout_width="260dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_cash_input"
+                    android:gravity="center"
+                    android:hint="@string/输入提现账号"
+                    android:textColor="#fff"
+                    android:textColorHint="@color/gray3"
+                    android:textSize="14sp"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_cash"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_btn_cash"
+                android:gravity="center"
+                android:text="@string/confirm_cash"
+                android:textColor="@color/gray3"
+                android:textSize="16sp"
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

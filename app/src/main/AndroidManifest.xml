@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.Tata.video">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.NETWORK_PROVIDER"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+
+
+    <application
+        android:name="com.Tata.video.AppContext"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        >
+        <activity
+            android:name="com.Tata.video.activity.LauncherActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.Tata.video.activity.MainActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.VideoPlayActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.LoginActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.SearchActivity2"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.ReplyActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.WebActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.WebUploadImgActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.ReportActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden"
+            />
+        <activity
+            android:name="com.Tata.video.activity.SettingActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.EditProfileActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.FollowActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.FansActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.VideoRecordActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.VideoChooseActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.MusicActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.VideoMusicActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.VideoCompressActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.VideoEditActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.VideoPublishActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.OtherUserActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.ChatActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.ImageChooseActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.LocationActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.FansMsgActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.ZanMsgActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.CommentMsgActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.AtMsgActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.ContactsActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.AtFriendsActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.AdminMsgActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.SystemMsgActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.BlackActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.WalletActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.CashActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden"
+            />
+        <activity
+            android:name="com.Tata.video.activity.CashActivity2"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden"
+            />
+        <activity
+            android:name="com.Tata.video.activity.ZanMoneyActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.ShareActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.ChooseMusicActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.EditMusicActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.Tata.video.activity.LinkActivity"
+            android:screenOrientation="portrait"
+            />
+        <!--微信登录回调页面-->
+        <activity
+            android:name="com.Tata.video.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            />
+        <!--腾讯地图定位-->
+        <meta-data
+            android:name="TencentMapSDK"
+            android:value="B32BZ-FQCWD-S5G4J-PBYGX-BVIC6-H6F4K"/>
+
+        <!-- 腾讯bugly -->
+        <meta-data
+            android:name="BUGLY_APPID"
+            android:value="7e958410c7"/>
+        <!-- 配置APP版本号 -->
+        <meta-data
+            android:name="BUGLY_APP_VERSION"
+            android:value="3.1.5"/>
+
+        <!-- 配置APP渠道号 -->
+        <meta-data
+            android:name="BUGLY_APP_CHANNEL"
+            android:value="neibufabu"/>
+
+        <!-- 配置Bugly调试模式（true或者false） -->
+        <meta-data
+            android:name="BUGLY_ENABLE_DEBUG"
+            android:value="true"/>
+        <!-- 腾讯bugly end-->
+
+        <!--Android 7.0 拍照要用这个-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.Tata.video.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <!--百度语音识别-->
+        <meta-data
+            android:name="com.baidu.speech.APP_ID"
+            android:value="11637173"/>
+        <meta-data
+            android:name="com.baidu.speech.API_KEY"
+            android:value="ispUBWN0nM5rF9rWVSGp6Xqt"/>
+        <meta-data
+            android:name="com.baidu.speech.SECRET_KEY"
+            android:value="N1iQLNbnei3G0GBLMqtQdV9euSHIHvCW"/>
+
+        <service
+            android:name="com.baidu.speech.VoiceRecognitionService"
+            android:exported="false"/>
+        <!--百度语音识别end-->
+
+    </application>
+
+</manifest>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/view_title"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:padding="7dp"
+            android:src="@mipmap/icon_music_3"
+            />
+
+        <TextView
+            android:id="@+id/music_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/cut_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="60dp"
+        android:gravity="center_horizontal"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@mipmap/bgm_wave_voice"
+            />
+
+        <com.Tata.video.custom.RangeSlider
+            android:id="@+id/bgm_range_slider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:leftThumbDrawable="@drawable/ic_progress_left"
+            app:leftThumbIndex="0"
+            app:lineColor="@color/global"
+            app:lineHeight="2dp"
+            app:rightThumbDrawable="@drawable/ic_progress_right"
+            app:thumbWidth="10dp"
+            app:tickCount="100"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_cut"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="35dp"
+        >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="4dp"
+            android:src="@mipmap/icon_music_5"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_cut_tip"
+            android:gravity="center_vertical"
+            android:text="@string/cut_tip_2"
+            android:textColor="@color/global"
+            android:textSize="14sp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
