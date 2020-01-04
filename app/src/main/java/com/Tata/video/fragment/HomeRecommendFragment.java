@@ -6,8 +6,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.Tata.video.AppConfig;
 import com.Tata.video.Constants;
 import com.Tata.video.R;
@@ -22,6 +20,8 @@ import com.Tata.video.http.HttpUtil;
 import com.Tata.video.interfaces.GlobalLayoutChangedListener;
 import com.Tata.video.utils.ToastUtil;
 import com.Tata.video.utils.WordUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -54,7 +54,7 @@ public class HomeRecommendFragment extends AbsFragment {
         mVideoPlayFragment.setDataHelper(new VideoPlayFragment.DataHelper() {
             @Override
             public void initData(HttpCallback callback) {
-                HttpUtil.getRecommendVideos(1, callback);
+                 HttpUtil.getRecommendVideos(1, callback);
             }
 
             @Override

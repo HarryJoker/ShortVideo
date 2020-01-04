@@ -4,11 +4,11 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
-import com.tencent.bugly.crashreport.CrashReport;
 import com.Tata.video.http.HttpUtil;
 import com.Tata.video.jpush.JMessageUtil;
 import com.Tata.video.jpush.JPushUtil;
 import com.Tata.video.utils.SharedPreferencesUtil;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import cn.sharesdk.framework.ShareSDK;
 import cn.tillusory.sdk.TiSDK;

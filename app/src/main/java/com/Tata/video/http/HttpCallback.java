@@ -3,14 +3,14 @@ package com.Tata.video.http;
 import android.app.Dialog;
 import android.content.Intent;
 
-import com.alibaba.fastjson.JSON;
-import com.lzy.okgo.callback.AbsCallback;
-import com.lzy.okgo.model.Response;
-import com.lzy.okgo.request.base.Request;
 import com.Tata.video.AppContext;
 import com.Tata.video.activity.LoginActivity;
 import com.Tata.video.utils.L;
 import com.Tata.video.utils.ToastUtil;
+import com.alibaba.fastjson.JSON;
+import com.lzy.okgo.callback.AbsCallback;
+import com.lzy.okgo.model.Response;
+import com.lzy.okgo.request.base.Request;
 
 import java.net.ConnectException;
 import java.net.SocketException;
@@ -27,7 +27,8 @@ public abstract class HttpCallback extends AbsCallback<JsonBean> {
 
     @Override
     public JsonBean convertResponse(okhttp3.Response response) throws Throwable {
-        JsonBean bean = JSON.parseObject(response.body().string(), JsonBean.class);
+        String content = response.body().string();
+         JsonBean bean = JSON.parseObject(content, JsonBean.class);
         response.close();
         return bean;
     }

@@ -23,7 +23,7 @@ public class AppConfig {
     private static final String TAG = "AppConfig";
 
     //域名
-    public static final String HOST = "http://short-video.kinlink.cn";
+    public static final String HOST = "http://tremolo.intermedhk.com";
 /*"http://vedio.mie5123.cn"  "http://short-video.kinlink.cn"*/
     public static final String FILE_PROVIDER = "com.qianhong.phonelive.fileprovider";
 

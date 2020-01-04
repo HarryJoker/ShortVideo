@@ -19,6 +19,7 @@ import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.cookie.CookieJarImpl;
 import com.lzy.okgo.cookie.store.MemoryCookieStore;
+import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 import com.lzy.okgo.model.Response;
 
 import org.greenrobot.eventbus.EventBus;
@@ -26,9 +27,9 @@ import org.greenrobot.eventbus.EventBus;
 import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 import okhttp3.OkHttpClient;
-
 
 /**
  * Created by cxf on 2017/8/4.
@@ -53,10 +54,10 @@ public class HttpUtil {
         builder.retryOnConnectionFailure(true);
 
         //输出HTTP请求 响应信息
-//        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("http");
-//        loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BASIC);
-//        loggingInterceptor.setColorLevel(Level.INFO);
-//        builder.addInterceptor(loggingInterceptor);
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("http");
+        loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BASIC);
+        loggingInterceptor.setColorLevel(Level.INFO);
+        builder.addInterceptor(loggingInterceptor);
 
         sOkHttpClient = builder.build();
         OkGo.getInstance().init(AppContext.sInstance)
