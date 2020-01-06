@@ -199,9 +199,9 @@ public class VideoPlayWrap extends FrameLayout implements View.OnClickListener {
      * 暂停音乐播放的动画
      */
     public void pauseMusicAnim() {
-//        if (mMusicAnimLayout != null) {
-//            mMusicAnimLayout.pauseAnim();
-//        }
+        if (mMusicAnimLayout != null) {
+            mMusicAnimLayout.pauseAnim();
+        }
     }
 
     /**

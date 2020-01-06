@@ -12,26 +12,24 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.Tata.video.utils.DialogUitl;
-import com.tencent.ugc.TXVideoEditConstants;
-import com.tencent.ugc.TXVideoEditer;
-import com.tencent.ugc.TXVideoInfoReader;
 import com.Tata.video.Constants;
 import com.Tata.video.R;
 import com.Tata.video.bean.MusicBean;
 import com.Tata.video.custom.video.FilterHolder;
 import com.Tata.video.custom.video.MusicHolder;
-import com.Tata.video.custom.video.SpecialHolder;
 import com.Tata.video.fragment.VideoProcessFragment;
+import com.Tata.video.utils.DialogUitl;
 import com.Tata.video.utils.L;
 import com.Tata.video.utils.ToastUtil;
 import com.Tata.video.utils.VideoEditWrap;
 import com.Tata.video.utils.WordUtil;
+import com.tencent.ugc.TXVideoEditConstants;
+import com.tencent.ugc.TXVideoEditer;
+import com.tencent.ugc.TXVideoInfoReader;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Arrays;
 
 /**
  * Created by cxf on 2018/6/21.
@@ -60,7 +58,7 @@ public class VideoEditActivity extends AbsActivity implements View.OnClickListen
     private VideoProcessFragment mVideoProcessFragment;
     private String mGenerateVideoPath;//生成视频的路径
     //美颜管理类
-    private SpecialHolder mSpecialHolder;
+//    private SpecialHolder mSpecialHolder;
     //滤镜管理类
     private FilterHolder mFilterHolder;
     //音乐管理类
@@ -96,8 +94,8 @@ public class VideoEditActivity extends AbsActivity implements View.OnClickListen
         mBtnNext = findViewById(R.id.btn_next);
         mBtnPlay = (ImageView) findViewById(R.id.btn_play);
         findViewById(R.id.root).setOnClickListener(this);
-        mSpecialHolder = new SpecialHolder(mContext, container, content, mVideoDuration);
-        mSpecialHolder.setEffectListener(mEffectListener);
+//        mSpecialHolder = new SpecialHolder(mContext, container, content, mVideoDuration);
+//        mSpecialHolder.setEffectListener(mEffectListener);
         mFilterHolder = new FilterHolder(mContext, container, content);
         mFilterHolder.setFilterEffectListener(mFilterEffectListener);
         mMusicHolder = new MusicHolder(mContext, container, content, mMusicBean);
@@ -126,9 +124,9 @@ public class VideoEditActivity extends AbsActivity implements View.OnClickListen
     private TXVideoEditer.TXVideoPreviewListener mPreviewListener = new TXVideoEditer.TXVideoPreviewListener() {
         @Override
         public void onPreviewProgress(int timeMs) {
-            if (mSpecialHolder != null) {
-                mSpecialHolder.onVideoPreview(timeMs);
-            }
+//            if (mSpecialHolder != null) {
+//                mSpecialHolder.onVideoPreview(timeMs);
+//            }
         }
 
         @Override
@@ -149,9 +147,9 @@ public class VideoEditActivity extends AbsActivity implements View.OnClickListen
         @Override
         public void onReverseComplete(TXVideoEditConstants.TXGenerateResult result) {
             if (result.retCode == TXVideoEditConstants.GENERATE_RESULT_OK) {
-                if (mSpecialHolder != null) {
-                    mSpecialHolder.reverse();
-                }
+//                if (mSpecialHolder != null) {
+//                    mSpecialHolder.reverse();
+//                }
                 if (mTXVideoEditer != null) {
                     startPlay(mCutStartTime, mCutEndTime);
                 }
@@ -447,9 +445,9 @@ public class VideoEditActivity extends AbsActivity implements View.OnClickListen
      * 打开特效面板
      */
     private void showSpecial() {
-        if (mSpecialHolder != null) {
-            mSpecialHolder.show();
-        }
+//        if (mSpecialHolder != null) {
+//            mSpecialHolder.show();
+//        }
     }
 
     /**
@@ -474,9 +472,9 @@ public class VideoEditActivity extends AbsActivity implements View.OnClickListen
      * 选择更换背景音乐
      */
     private void chooseMusic() {
-        Intent intent = new Intent(mContext, VideoMusicActivity.class);
-        intent.putExtra(Constants.FROM, Constants.VIDEO_FROM_EDIT);
-        startActivityForResult(intent, 100);
+//        Intent intent = new Intent(mContext, VideoMusicActivity.class);
+//        intent.putExtra(Constants.FROM, Constants.VIDEO_FROM_EDIT);
+//        startActivityForResult(intent, 100);
     }
 
 
@@ -602,115 +600,115 @@ public class VideoEditActivity extends AbsActivity implements View.OnClickListen
         }
     }
 
-    private SpecialHolder.EffectListener mEffectListener = new SpecialHolder.EffectListener() {
-        @Override
-        public void onSeekChanged(long currentTimeMs) {
-            previewAtTime(currentTimeMs);
-        }
-
-        @Override
-        public void onCutTimeChanged(long startTimeMs, long endTimeMs) {
-            mCutStartTime = startTimeMs;
-            mCutEndTime = endTimeMs;
-            if (mTXVideoEditer != null) {
-                mTXVideoEditer.setCutFromTime(startTimeMs, endTimeMs);
-            }
-        }
-
-        @Override
-        public void onOtherSpecialStart(int effect, long currentTimeMs) {
-            if (mPLayStatus == STATUS_NONE || mPLayStatus == STATUS_PREVIEW_AT_TIME) {
-                startPlay(mPreviewAtTime, mCutEndTime);
-            } else if (mPLayStatus == STATUS_PAUSE) {
-                resumePlay();
-            }
-            if (mTXVideoEditer != null) {
-                mTXVideoEditer.startEffect(effect, currentTimeMs);
-            }
-        }
-
-        @Override
-        public void onOtherSpecialEnd(int effect, long currentTimeMs) {
-            pausePlay();
-            if (mTXVideoEditer != null) {
-                mTXVideoEditer.stopEffect(effect, currentTimeMs);
-            }
-        }
-
-        @Override
-        public void onOtherSpecialCancel(long currentTimeMs) {
-            if (mTXVideoEditer != null) {
-                mTXVideoEditer.previewAtTime(currentTimeMs);
-                mTXVideoEditer.deleteLastEffect();
-            }
-        }
-
-        @Override
-        public void onTimeDaoFangChanged(boolean add) {
-            if (mTXVideoEditer != null) {
-                if (add) {
-                    mTXVideoEditer.stopPlay();
-                    mTXVideoEditer.setReverse(true);
-                } else {
-                    mTXVideoEditer.stopPlay();
-                    mTXVideoEditer.setReverse(false);
-                    startPlay(mCutStartTime, mCutEndTime);
-                    if (mSpecialHolder != null) {
-                        mSpecialHolder.reverse();
-                    }
-                }
-            }
-        }
-
-        @Override
-        public void onTimeFanFuChanged(boolean add, long startTime) {
-            if (mTXVideoEditer != null) {
-                if (add) {
-                    mTXVideoEditer.previewAtTime(startTime);
-                    TXVideoEditConstants.TXRepeat repeat = new TXVideoEditConstants.TXRepeat();
-                    repeat.startTime = startTime;
-                    repeat.endTime = startTime + 2000;
-                    repeat.repeatTimes = 3;
-                    mTXVideoEditer.setRepeatPlay(Arrays.asList(repeat));
-                } else {
-                    mTXVideoEditer.setRepeatPlay(null);
-                    mTXVideoEditer.stopPlay();
-                    startPlay(mCutStartTime, mCutEndTime);
-                }
-
-            }
-        }
-
-        @Override
-        public void onTimeMdzChanged(boolean add, long startTime) {
-            if (mTXVideoEditer != null) {
-                if (add) {
-                    mTXVideoEditer.previewAtTime(startTime);
-                    TXVideoEditConstants.TXSpeed speed = new TXVideoEditConstants.TXSpeed();
-                    speed.startTime = startTime;
-                    speed.endTime = mVideoDuration;
-                    speed.speedLevel = TXVideoEditConstants.SPEED_LEVEL_SLOW;
-                    mTXVideoEditer.setSpeedList(Arrays.asList(speed));
-                } else {
-                    mTXVideoEditer.setSpeedList(null);
-                }
-            }
-        }
-
-        @Override
-        public boolean onHideClicked() {
-            if (mPLayStatus == STATUS_PREVIEW_AT_TIME) {
-                startPlay(mPreviewAtTime, mCutEndTime);
-                return false;
-            }
-            if (mPLayStatus == STATUS_PAUSE) {
-                resumePlay();
-                return false;
-            }
-            if (mPLayStatus == STATUS_PLAY) {
-                return true;
-            }
-            return false;
-        }
-    };
+//    private SpecialHolder.EffectListener mEffectListener = new SpecialHolder.EffectListener() {
+//        @Override
+//        public void onSeekChanged(long currentTimeMs) {
+//            previewAtTime(currentTimeMs);
+//        }
+//
+//        @Override
+//        public void onCutTimeChanged(long startTimeMs, long endTimeMs) {
+//            mCutStartTime = startTimeMs;
+//            mCutEndTime = endTimeMs;
+//            if (mTXVideoEditer != null) {
+//                mTXVideoEditer.setCutFromTime(startTimeMs, endTimeMs);
+//            }
+//        }
+//
+//        @Override
+//        public void onOtherSpecialStart(int effect, long currentTimeMs) {
+//            if (mPLayStatus == STATUS_NONE || mPLayStatus == STATUS_PREVIEW_AT_TIME) {
+//                startPlay(mPreviewAtTime, mCutEndTime);
+//            } else if (mPLayStatus == STATUS_PAUSE) {
+//                resumePlay();
+//            }
+//            if (mTXVideoEditer != null) {
+//                mTXVideoEditer.startEffect(effect, currentTimeMs);
+//            }
+//        }
+//
+//        @Override
+//        public void onOtherSpecialEnd(int effect, long currentTimeMs) {
+//            pausePlay();
+//            if (mTXVideoEditer != null) {
+//                mTXVideoEditer.stopEffect(effect, currentTimeMs);
+//            }
+//        }
+//
+//        @Override
+//        public void onOtherSpecialCancel(long currentTimeMs) {
+//            if (mTXVideoEditer != null) {
+//                mTXVideoEditer.previewAtTime(currentTimeMs);
+//                mTXVideoEditer.deleteLastEffect();
+//            }
+//        }
+//
+//        @Override
+//        public void onTimeDaoFangChanged(boolean add) {
+//            if (mTXVideoEditer != null) {
+//                if (add) {
+//                    mTXVideoEditer.stopPlay();
+//                    mTXVideoEditer.setReverse(true);
+//                } else {
+//                    mTXVideoEditer.stopPlay();
+//                    mTXVideoEditer.setReverse(false);
+//                    startPlay(mCutStartTime, mCutEndTime);
+//                    if (mSpecialHolder != null) {
+//                        mSpecialHolder.reverse();
+//                    }
+//                }
+//            }
+//        }
+//
+//        @Override
+//        public void onTimeFanFuChanged(boolean add, long startTime) {
+//            if (mTXVideoEditer != null) {
+//                if (add) {
+//                    mTXVideoEditer.previewAtTime(startTime);
+//                    TXVideoEditConstants.TXRepeat repeat = new TXVideoEditConstants.TXRepeat();
+//                    repeat.startTime = startTime;
+//                    repeat.endTime = startTime + 2000;
+//                    repeat.repeatTimes = 3;
+//                    mTXVideoEditer.setRepeatPlay(Arrays.asList(repeat));
+//                } else {
+//                    mTXVideoEditer.setRepeatPlay(null);
+//                    mTXVideoEditer.stopPlay();
+//                    startPlay(mCutStartTime, mCutEndTime);
+//                }
+//
+//            }
+//        }
+//
+//        @Override
+//        public void onTimeMdzChanged(boolean add, long startTime) {
+//            if (mTXVideoEditer != null) {
+//                if (add) {
+//                    mTXVideoEditer.previewAtTime(startTime);
+//                    TXVideoEditConstants.TXSpeed speed = new TXVideoEditConstants.TXSpeed();
+//                    speed.startTime = startTime;
+//                    speed.endTime = mVideoDuration;
+//                    speed.speedLevel = TXVideoEditConstants.SPEED_LEVEL_SLOW;
+//                    mTXVideoEditer.setSpeedList(Arrays.asList(speed));
+//                } else {
+//                    mTXVideoEditer.setSpeedList(null);
+//                }
+//            }
+//        }
+//
+//        @Override
+//        public boolean onHideClicked() {
+//            if (mPLayStatus == STATUS_PREVIEW_AT_TIME) {
+//                startPlay(mPreviewAtTime, mCutEndTime);
+//                return false;
+//            }
+//            if (mPLayStatus == STATUS_PAUSE) {
+//                resumePlay();
+//                return false;
+//            }
+//            if (mPLayStatus == STATUS_PLAY) {
+//                return true;
+//            }
+//            return false;
+//        }
+//    };
 }

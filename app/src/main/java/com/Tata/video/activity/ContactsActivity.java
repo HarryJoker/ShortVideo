@@ -287,6 +287,6 @@ public class ContactsActivity extends AbsActivity implements OnItemClickListener
 
     @Override
     public void onItemClick(SearchBean bean, int position) {
-        ChatActivity.forwardChatRoom(mContext, bean.castToUserBean());
+//        ChatActivity.forwardChatRoom(mContext, bean.castToUserBean());
     }
 }

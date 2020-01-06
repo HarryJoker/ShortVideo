@@ -68,15 +68,15 @@ public class LocationUtil {
 
     //启动定位
     public void startLocation() {
-        if (!mLocationStarted && mLocationManager != null) {
-            mLocationStarted = true;
-            L.e(TAG, "#开启定位");
-            TencentLocationRequest request = TencentLocationRequest
-                    .create()
-                    .setRequestLevel(TencentLocationRequest.REQUEST_LEVEL_GEO)
-                    .setInterval(5*60*1000);//5分钟定一次位
-            mLocationManager.requestLocationUpdates(request, mLocationListener);
-        }
+//        if (!mLocationStarted && mLocationManager != null) {
+//            mLocationStarted = true;
+//            L.e(TAG, "#开启定位");
+//            TencentLocationRequest request = TencentLocationRequest
+//                    .create()
+//                    .setRequestLevel(TencentLocationRequest.REQUEST_LEVEL_GEO)
+//                    .setInterval(5*60*1000);//5分钟定一次位
+//            mLocationManager.requestLocationUpdates(request, mLocationListener);
+//        }
     }
 
     //停止定位

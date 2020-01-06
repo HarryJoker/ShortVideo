@@ -54,7 +54,7 @@ public class HttpUtil {
         builder.retryOnConnectionFailure(true);
 
         //输出HTTP请求 响应信息
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("http");
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("ShortVideo");
         loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BASIC);
         loggingInterceptor.setColorLevel(Level.INFO);
         builder.addInterceptor(loggingInterceptor);

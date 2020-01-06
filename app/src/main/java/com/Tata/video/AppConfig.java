@@ -6,13 +6,11 @@ import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.text.TextUtils;
 
-import com.alibaba.fastjson.JSON;
 import com.Tata.video.bean.ConfigBean;
 import com.Tata.video.bean.UserBean;
-import com.Tata.video.jpush.JMessageUtil;
-import com.Tata.video.jpush.JPushUtil;
 import com.Tata.video.utils.L;
 import com.Tata.video.utils.SharedPreferencesUtil;
+import com.alibaba.fastjson.JSON;
 
 /**
  * Created by cxf on 2017/8/4.
@@ -191,8 +189,8 @@ public class AppConfig {
      */
     public void loginJPush() {
         if (isLogin()) {
-            JPushUtil.getInstance().setAlias(mUid);
-            JMessageUtil.getInstance().loginJMessage(mUid);
+//            JPushUtil.getInstance().setAlias(mUid);
+//            JMessageUtil.getInstance().loginJMessage(mUid);
         }
     }
 
@@ -200,8 +198,8 @@ public class AppConfig {
      * 登出JPush和JMessage
      */
     public void logoutJPush() {
-        JPushUtil.getInstance().stopPush();
-        JMessageUtil.getInstance().logoutEMClient();
+//        JPushUtil.getInstance().stopPush();
+//        JMessageUtil.getInstance().logoutEMClient();
         mLoginIM = false;
     }
 

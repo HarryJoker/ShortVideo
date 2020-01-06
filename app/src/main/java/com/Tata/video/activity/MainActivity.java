@@ -17,7 +17,6 @@ import android.view.WindowManager;
 import com.Tata.video.AppConfig;
 import com.Tata.video.Constants;
 import com.Tata.video.R;
-import com.Tata.video.bean.ChatMessageBean;
 import com.Tata.video.bean.OffLineMsgEvent;
 import com.Tata.video.bean.VideoBean;
 import com.Tata.video.custom.MyViewPager;
@@ -295,7 +294,7 @@ public class MainActivity extends AudioAbsActivity implements ViewPager.OnPageCh
      * 开启短视频录制
      */
     private void startVideoRecord() {
-        startActivity(new Intent(mContext, VideoMusicActivity.class));
+//        startActivity(new Intent(mContext, VideoMusicActivity.class));
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -317,10 +316,10 @@ public class MainActivity extends AudioAbsActivity implements ViewPager.OnPageCh
         refreshUnReadCount();
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onChatMessageBean(ChatMessageBean e) {
-        refreshUnReadCount();
-    }
+//    @Subscribe(threadMode = ThreadMode.MAIN)
+//    public void onChatMessageBean(ChatMessageBean e) {
+//        refreshUnReadCount();
+//    }
 
     /**
      * 接收到了离线消息

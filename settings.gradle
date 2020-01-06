@@ -1,1 +1,1 @@
-include ':app', ':jpush', ':sharedsdk', ':beauty', ':video'
+include ':app', ':sharedsdk'//, ':jpush', ':beauty', ':video'

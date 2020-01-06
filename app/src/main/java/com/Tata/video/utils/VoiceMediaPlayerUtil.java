@@ -3,9 +3,7 @@ package com.Tata.video.utils;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.text.TextUtils;
 
-import com.Tata.video.bean.ChatMessageBean;
 
 /**
  * Created by cxf on 2018/7/19.
@@ -22,7 +20,7 @@ public class VoiceMediaPlayerUtil {
     private AudioManager mAudioManager;
     private int mOriginVolume;//原始音量
     private int mMaxVolume;
-    private ChatMessageBean mCurChatMessageBean;
+//    private ChatMessageBean mCurChatMessageBean;
 
     private MediaPlayer.OnPreparedListener mOnPreparedListener = new MediaPlayer.OnPreparedListener() {
         @Override
@@ -37,7 +35,7 @@ public class VoiceMediaPlayerUtil {
                 mPlayer.start();
                 mStarted = true;
                 if (mMediaPlayCallback != null) {
-                    mMediaPlayCallback.onPlayStart(mCurChatMessageBean);
+//                    mMediaPlayCallback.onPlayStart(mCurChatMessageBean);
                 }
             }
         }
@@ -52,7 +50,7 @@ public class VoiceMediaPlayerUtil {
             mStarted = false;
             mCurPath = null;
             if (mMediaPlayCallback != null) {
-                mMediaPlayCallback.onPlayEnd(mCurChatMessageBean);
+//                mMediaPlayCallback.onPlayEnd(mCurChatMessageBean);
             }
         }
     };
@@ -66,7 +64,7 @@ public class VoiceMediaPlayerUtil {
             mStarted = false;
             mCurPath = null;
             if (mMediaPlayCallback != null) {
-                mMediaPlayCallback.onPlayError(mCurChatMessageBean);
+//                mMediaPlayCallback.onPlayError(mCurChatMessageBean);
             }
             return false;
         }
@@ -87,43 +85,43 @@ public class VoiceMediaPlayerUtil {
         mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
     }
 
-    public void startPlay(ChatMessageBean bean, String path) {
-        if (TextUtils.isEmpty(path)) {
-            return;
-        }
-        if (!mStarted) {
-            mCurChatMessageBean = bean;
-            mCurPath = path;
-            try {
-                mPlayer.reset();
-                mPlayer.setDataSource(path);
-                mPlayer.setLooping(false);
-                mPlayer.setVolume(1f, 1f);
-                mPlayer.prepare();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else {
-            if (!path.equals(mCurPath)) {
-                if (mCurChatMessageBean != null && mMediaPlayCallback != null) {
-                    mMediaPlayCallback.onPlayEnd(mCurChatMessageBean);
-                }
-                mCurChatMessageBean = bean;
-                mCurPath = path;
-                mStarted = false;
-                try {
-                    mPlayer.stop();
-                    mPlayer.reset();
-                    mPlayer.setDataSource(path);
-                    mPlayer.setLooping(false);
-                    mPlayer.setVolume(1f, 1f);
-                    mPlayer.prepare();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
+//    public void startPlay(ChatMessageBean bean, String path) {
+//        if (TextUtils.isEmpty(path)) {
+//            return;
+//        }
+//        if (!mStarted) {
+//            mCurChatMessageBean = bean;
+//            mCurPath = path;
+//            try {
+//                mPlayer.reset();
+//                mPlayer.setDataSource(path);
+//                mPlayer.setLooping(false);
+//                mPlayer.setVolume(1f, 1f);
+//                mPlayer.prepare();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        } else {
+//            if (!path.equals(mCurPath)) {
+//                if (mCurChatMessageBean != null && mMediaPlayCallback != null) {
+//                    mMediaPlayCallback.onPlayEnd(mCurChatMessageBean);
+//                }
+//                mCurChatMessageBean = bean;
+//                mCurPath = path;
+//                mStarted = false;
+//                try {
+//                    mPlayer.stop();
+//                    mPlayer.reset();
+//                    mPlayer.setDataSource(path);
+//                    mPlayer.setLooping(false);
+//                    mPlayer.setVolume(1f, 1f);
+//                    mPlayer.prepare();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
+//    }
 
     public void pausePlay() {
         if (mStarted && !mDestroy) {
@@ -160,10 +158,10 @@ public class VoiceMediaPlayerUtil {
     }
 
     public interface MediaPlayCallback {
-        void onPlayStart(ChatMessageBean bean);
+//        void onPlayStart(ChatMessageBean bean);
 
-        void onPlayEnd(ChatMessageBean bean);
+//        void onPlayEnd(ChatMessageBean bean);
 
-        void onPlayError(ChatMessageBean bean);
+//        void onPlayError(ChatMessageBean bean);
     }
 }

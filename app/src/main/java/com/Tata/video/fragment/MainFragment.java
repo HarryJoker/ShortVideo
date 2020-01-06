@@ -17,7 +17,6 @@ import com.Tata.video.R;
 import com.Tata.video.activity.LoginActivity;
 import com.Tata.video.activity.MainActivity;
 import com.Tata.video.custom.DrawableRadioButton;
-import com.Tata.video.jpush.JMessageUtil;
 import com.Tata.video.utils.DpUtil;
 
 /**
@@ -75,7 +74,7 @@ public class MainFragment extends AbsFragment implements View.OnClickListener {
         mHomeFragment = new HomeFragment();
         mSparseArray.put(HOME, mHomeFragment);
         mSparseArray.put(FOLLOW, new FollowFragment());
-        mSparseArray.put(MSG, new MessageFragment());
+//        mSparseArray.put(MSG, new MessageFragment());
         UserFragment userFragment = new UserFragment();
         Bundle bundle = new Bundle();
         bundle.putBoolean(Constants.IS_MAIN_USER_CENTER, true);
@@ -259,7 +258,8 @@ public class MainFragment extends AbsFragment implements View.OnClickListener {
             return;
         }
         if (AppConfig.getInstance().isLogin() && AppConfig.getInstance().isLoginIM()) {
-            String unRedCount = JMessageUtil.getInstance().getAllUnReadMsgCount();
+//            String unRedCount = JMessageUtil.getInstance().getAllUnReadMsgCount();
+            String unRedCount = "0";
             if (!TextUtils.isEmpty(unRedCount) && !"0".equals(unRedCount)) {
                 if (mRedPoint.getVisibility() != View.VISIBLE) {
                     mRedPoint.setVisibility(View.VISIBLE);

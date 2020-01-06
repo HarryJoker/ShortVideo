@@ -15,7 +15,6 @@ import com.Tata.video.activity.OtherUserActivity;
 import com.Tata.video.bean.ChatUserBean;
 import com.Tata.video.glide.ImgLoader;
 import com.Tata.video.interfaces.OnItemClickListener;
-import com.Tata.video.jpush.JMessageUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,19 +43,19 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Vh> {
         cub1.setId(Constants.YB_ID_1);
         cub1.setUser_nicename(mContext.getResources().getString(R.string.Official));
         cub1.setFromType(ChatUserBean.TYPE_SYSTEM);
-        JMessageUtil util = JMessageUtil.getInstance();
-        ChatUserBean cubInfo1 = util.getLastMessageInfo(cub1);
-        if (cubInfo1 != null) {
-            cub1 = cubInfo1;
-        }
+//        JMessageUtil util = JMessageUtil.getInstance();
+//        ChatUserBean cubInfo1 = util.getLastMessageInfo(cub1);
+//        if (cubInfo1 != null) {
+//            cub1 = cubInfo1;
+//        }
         ChatUserBean cub2 = new ChatUserBean();
         cub2.setId(Constants.YB_ID_2);
         cub2.setUser_nicename(mContext.getResources().getString(R.string.System_notification));
         cub2.setFromType(ChatUserBean.TYPE_SYSTEM);
-        ChatUserBean cubInfo2 = util.getLastMessageInfo(cub2);
-        if (cubInfo2 != null) {
-            cub2 = cubInfo2;
-        }
+//        ChatUserBean cubInfo2 = util.getLastMessageInfo(cub2);
+//        if (cubInfo2 != null) {
+//            cub2 = cubInfo2;
+//        }
         mAdminChatBeanList.add(cub1);
         mAdminChatBeanList.add(cub2);
         mList.addAll(mAdminChatBeanList);
@@ -72,13 +71,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Vh> {
     }
 
     public void updateAdminChatInfo() {
-        JMessageUtil util = JMessageUtil.getInstance();
-        for (ChatUserBean c : mAdminChatBeanList) {
-            ChatUserBean info = util.getLastMessageInfo(c);
-            if (info != null) {
-                updateItem(c.getId());
-            }
-        }
+//        JMessageUtil util = JMessageUtil.getInstance();
+//        for (ChatUserBean c : mAdminChatBeanList) {
+//            ChatUserBean info = util.getLastMessageInfo(c);
+//            if (info != null) {
+//                updateItem(c.getId());
+//            }
+//        }
     }
 
     public void insertList(List<ChatUserBean> list) {

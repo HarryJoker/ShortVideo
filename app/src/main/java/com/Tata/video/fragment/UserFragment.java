@@ -16,12 +16,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.Tata.video.AppConfig;
 import com.Tata.video.Constants;
 import com.Tata.video.R;
-import com.Tata.video.activity.ChatActivity;
 import com.Tata.video.activity.EditProfileActivity;
 import com.Tata.video.activity.FansActivity;
 import com.Tata.video.activity.FollowActivity;
@@ -50,6 +47,8 @@ import com.Tata.video.utils.DpUtil;
 import com.Tata.video.utils.L;
 import com.Tata.video.utils.ToastUtil;
 import com.Tata.video.utils.WordUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -673,7 +672,7 @@ public class UserFragment extends AbsFragment implements ViewPager.OnPageChangeL
             LoginActivity.forwardLogin(mContext);
         } else {
             if (mUserBean != null) {
-                ChatActivity.forwardChatRoom(mContext, mUserBean);
+//                ChatActivity.forwardChatRoom(mContext, mUserBean);
             }
         }
     }

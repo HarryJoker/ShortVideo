@@ -24,7 +24,9 @@ public abstract class AbsActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStatusBar();
-        setContentView(getLayoutId());
+        if (getLayoutId() > 0) {
+            setContentView(getLayoutId());
+        }
         mContext = this;
         main(savedInstanceState);
     }
